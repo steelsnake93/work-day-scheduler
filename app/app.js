@@ -57,4 +57,13 @@ function changeColor() {
 changeColor();
 // Function to allow user to enter an event
 // Function to save event in local storage on button click
+function saveEvent() {
+    $(".saveBtn").on("click", function() {
+        let hour = $(this).parent().find(".hour").text();
+        let event = $(this).parent().find(".description").val();
+        localStorage.setItem(hour, event);
+    });
+}
 // Function to display saved events from local storage
+// Call the functions
+saveEvent();
