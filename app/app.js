@@ -41,6 +41,20 @@ function createTimeBlocks() {
 }
 createTimeBlocks();
 // Function to change color based on past present and future
+function changeColor() {
+    let currentHour = moment().hour();
+    $(".description").each(function() {
+        let blockHour = parseInt($(this).parent().find(".hour").text());
+        if(blockHour < currentHour) {
+            $(this).addClass("past");
+        }else if(blockHour === currentHour) {
+            $(this).addClass("present");
+        }else{
+            $(this).addClass("future");
+        }
+    });
+}
+changeColor();
 // Function to allow user to enter an event
 // Function to save event in local storage on button click
 // Function to display saved events from local storage
